@@ -1,4 +1,4 @@
-import { MoreHorizontal, Play, TrendingUp } from 'lucide-react'
+import { TrendingUp } from 'lucide-react'
 import { Button } from './ui/Button'
 
 const MOCK_ARTISTS = [

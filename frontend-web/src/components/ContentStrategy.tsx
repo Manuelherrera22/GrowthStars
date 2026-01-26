@@ -25,7 +25,7 @@ export default function ContentStrategy() {
                         <Tooltip
                             cursor={{ fill: '#1e293b', opacity: 0.4 }}
                             contentStyle={{ backgroundColor: '#0f172a', borderColor: '#334155', color: '#f8fafc' }}
-                            formatter={(value: number) => [`${value}%`, 'Retention']}
+                            formatter={(value: any) => [`${value}%`, 'Retention']}
                         />
                         <Bar dataKey="retention" radius={[0, 4, 4, 0]} barSize={20}>
                             {data.map((entry, index) => (

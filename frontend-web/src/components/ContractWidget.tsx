@@ -1,5 +1,5 @@
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts'
-import { ShieldCheck, FileText, AlertCircle } from 'lucide-react'
+import { ShieldCheck, FileText } from 'lucide-react'
 
 const data = [
     { name: 'Artist (Luna)', value: 50, color: '#6366f1' },

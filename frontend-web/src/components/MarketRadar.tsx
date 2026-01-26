@@ -1,4 +1,4 @@
-import { Radar, Radio, TrendingUp, Globe2 } from 'lucide-react'
+import { Radio, TrendingUp, Globe2 } from 'lucide-react'
 
 export default function MarketRadar() {
     return (

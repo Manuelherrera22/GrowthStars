@@ -1,4 +1,3 @@
-import { useParams } from 'react-router-dom'
 import { Users, DollarSign, PlayCircle } from 'lucide-react'
 import { Button } from '../components/ui/Button'
 import MetricCard from '../components/MetricCard'
@@ -14,7 +13,7 @@ export default function ArtistDetail() {
     // ...
     // Finding a place to insert. I will add it in a new row at the bottom for Legal.
 
-    const { id } = useParams()
+    // const { id } = useParams()
 
     // In a real app, useQuery to fetch artist by ID
     const artist = {

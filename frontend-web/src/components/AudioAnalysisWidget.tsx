@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { UploadCloud, Music, Activity, Zap, Loader2 } from 'lucide-react'
+import { UploadCloud, Activity, Zap, Loader2 } from 'lucide-react'
 import { Button } from './ui/Button'
 import WaveformPlayer from './WaveformPlayer'
 

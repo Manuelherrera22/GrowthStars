@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { motion, Reorder } from 'framer-motion'
-import { MoreHorizontal, Calendar, CheckCircle2 } from 'lucide-react'
+
+import { MoreHorizontal, CheckCircle2 } from 'lucide-react'
 
 // Mock Data
 const INITIAL_TASKS = {
@@ -17,7 +17,7 @@ const INITIAL_TASKS = {
 }
 
 export default function MissionKanban() {
-    const [columns, setColumns] = useState(INITIAL_TASKS)
+    const [columns] = useState(INITIAL_TASKS)
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-[500px]">

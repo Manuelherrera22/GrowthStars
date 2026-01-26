@@ -25,7 +25,6 @@ export default function WaveformPlayer({ url, height = 64, color = '#6366f1' }: 
             cursorColor: '#f8fafc',
             barWidth: 2,
             barGap: 3,
-            responsive: true,
             height: height,
             barRadius: 3,
         })
@@ -66,10 +65,9 @@ export default function WaveformPlayer({ url, height = 64, color = '#6366f1' }: 
     return (
         <div className="flex items-center space-x-4 bg-slate-900/50 border border-slate-800 rounded-xl p-4">
             <Button
-                size="icon"
+                className="h-10 w-10 p-0 rounded-full flex-shrink-0"
                 onClick={togglePlay}
                 disabled={!isReady}
-                className="rounded-full w-12 h-12 flex-shrink-0"
             >
                 {!isReady ? (
                     <Loader2 className="w-5 h-5 animate-spin" />

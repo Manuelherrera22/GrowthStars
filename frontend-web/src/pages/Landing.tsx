@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Zap, Target, ArrowRight, Play, Globe2, Sparkles, Heart, MessageCircle, Wallet, Crown, Star } from 'lucide-react'
+import { Zap, ArrowRight, Play, Sparkles, Heart, MessageCircle, Wallet, Crown, Star } from 'lucide-react'
 import { Button } from '../components/ui/Button'
 
 export default function Landing() {

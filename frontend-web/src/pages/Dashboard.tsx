@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { TrendingUp, Users, AlertTriangle, Activity, DollarSign, Bell, ArrowRight, Music, Zap, CheckCircle } from 'lucide-react'
+
+import { Users, AlertTriangle, Activity, DollarSign, Bell, ArrowRight, Music, Zap, CheckCircle } from 'lucide-react'
 import { Button } from '../components/ui/Button'
 import { FINANCIAL_METRICS } from '../data/mock-financials'
 
@@ -178,9 +178,10 @@ function FeedItem({ time, title, desc, icon: Icon, color }: any) {
         <div className="flex items-start gap-3 relative pb-6 border-l border-slate-800 pl-6 last:border-0">
             <div className="absolute left-[-5px] top-1 w-2.5 h-2.5 rounded-full bg-slate-800 border border-slate-600" />
             <div className="flex-1">
-                <div className="flex justify-between items-center mb-1">
+                <div className="flex items-center gap-2 mb-1">
+                    <Icon className={`w-3 h-3 ${colors[color]}`} />
                     <span className={`text-xs font-bold ${colors[color]}`}>{title}</span>
-                    <span className="text-[10px] text-slate-500">{time}</span>
+                    <span className="text-[10px] text-slate-500 ml-auto">{time}</span>
                 </div>
                 <p className="text-slate-400 text-xs leading-relaxed">{desc}</p>
             </div>

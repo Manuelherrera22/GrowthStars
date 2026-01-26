@@ -1,4 +1,4 @@
-import { Wallet, TrendingUp, TrendingDown, Building2 } from 'lucide-react'
+import { TrendingUp, TrendingDown, Building2 } from 'lucide-react'
 import TransactionTable from '../components/TransactionTable'
 
 export default function TreasuryPage() {

@@ -48,10 +48,10 @@ export default function SmartLinksPage() {
                                 <div className="text-xs text-slate-500 uppercase">Captures</div>
                             </div>
                             <div className="flex space-x-2">
-                                <Button variant="outline" size="sm">
+                                <Button variant="outline" className="h-8 w-8 p-0">
                                     <BarChart2 className="w-4 h-4" />
                                 </Button>
-                                <Button variant="outline" size="sm">
+                                <Button variant="outline" className="h-8 w-8 p-0">
                                     <Copy className="w-4 h-4" />
                                 </Button>
                             </div>

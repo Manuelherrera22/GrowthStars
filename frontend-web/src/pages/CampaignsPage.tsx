@@ -54,7 +54,7 @@ export default function CampaignsPage() {
                                     Revenue <TrendingUp className="w-3 h-3 ml-1" />
                                 </div>
                             </div>
-                            <Button variant="outline" size="sm">
+                            <Button variant="outline" className="h-8 w-8 p-0">
                                 <BarChart className="w-4 h-4" />
                             </Button>
                         </div>

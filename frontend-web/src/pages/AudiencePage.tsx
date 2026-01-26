@@ -1,4 +1,4 @@
-import { Users, Filter, Download, Search } from 'lucide-react'
+import { Filter, Download, Search } from 'lucide-react'
 import { Button } from '../components/ui/Button'
 
 export default function AudiencePage() {
@@ -66,8 +66,8 @@ export default function AudiencePage() {
                                     </td>
                                     <td className="px-6 py-4">
                                         <span className={`text-xs px-2 py-1 rounded-full border ${fan.status === 'Visionary' || fan.status === 'Super Fan'
-                                                ? 'bg-purple-500/10 text-purple-400 border-purple-500/20'
-                                                : 'bg-slate-800 text-slate-300 border-slate-700'
+                                            ? 'bg-purple-500/10 text-purple-400 border-purple-500/20'
+                                            : 'bg-slate-800 text-slate-300 border-slate-700'
                                             }`}>
                                             {fan.status}
                                         </span>
