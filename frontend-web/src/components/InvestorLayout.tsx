@@ -47,7 +47,10 @@ export default function InvestorLayout() {
 
                 <div className="p-4 border-t border-slate-800">
                     <button
-                        onClick={() => logout()}
+                        onClick={() => {
+                            logout()
+                            window.location.href = '/login'
+                        }}
                         className="flex items-center space-x-3 px-4 py-3 w-full rounded-lg text-sm font-medium text-slate-400 hover:bg-red-500/10 hover:text-red-400 transition-colors"
                     >
                         <LogOut className="w-5 h-5" />

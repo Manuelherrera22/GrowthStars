@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { CheckCircle, Wallet, Music, Home, Upload, DollarSign, ChevronRight } from 'lucide-react'
+import { CheckCircle, Wallet, Music, Home, Upload, DollarSign, ChevronRight, LogOut } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '../components/ui/Button'
 import { cn } from '../lib/utils'
@@ -145,6 +145,18 @@ export default function ArtistDashboard() {
                                             />
                                         </div>
                                         <p className="text-[10px] text-zinc-500 mt-2 text-right">¡Solo 150 XP para "Icon"!</p>
+                                    </div>
+
+                                    <div className="flex justify-end pt-2">
+                                        <button
+                                            onClick={() => {
+                                                window.location.href = '/login'
+                                            }}
+                                            className="text-[10px] text-zinc-500 hover:text-red-500 font-bold uppercase tracking-wider flex items-center transition-colors px-2 py-1"
+                                        >
+                                            <LogOut className="w-3 h-3 mr-1" />
+                                            Cerrar Sesión
+                                        </button>
                                     </div>
                                 </header>
 
