@@ -136,13 +136,13 @@ export default function Dashboard() {
                         <div className="flex justify-between items-start">
                             <div>
                                 <div className="flex items-center space-x-2 mb-2">
-                                    <span className="bg-red-500/10 text-red-500 text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">High Priority</span>
-                                    <span className="text-slate-400 text-xs">Churn Risk Detected</span>
+                                    <span className="bg-red-500/10 text-red-500 text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">Alta Prioridad</span>
+                                    <span className="text-slate-400 text-xs">Riesgo de Churn Detectado</span>
                                 </div>
-                                <h3 className="text-lg font-bold text-white mb-1">Recover 1,200 Fans for "Solaris"</h3>
-                                <p className="text-slate-400 text-sm">Engagement dropped by 15% last week. Launch a "Secret Demo" campaign to re-engage them.</p>
+                                <h3 className="text-lg font-bold text-white mb-1">Recuperar 1,200 Fans de "Solaris"</h3>
+                                <p className="text-slate-400 text-sm">El engagement cayó un 15% la semana pasada. Lanza una "Demo Secreta" para reactivarlos.</p>
                             </div>
-                            <Button>Launch Recovery</Button>
+                            <Button>Lanzar Recuperación</Button>
                         </div>
                     </div>
 
@@ -150,13 +150,13 @@ export default function Dashboard() {
                         <div className="flex justify-between items-start">
                             <div>
                                 <div className="flex items-center space-x-2 mb-2">
-                                    <span className="bg-indigo-500/10 text-indigo-400 text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">Opportunity</span>
-                                    <span className="text-slate-400 text-xs">Viral Trend</span>
+                                    <span className="bg-indigo-500/10 text-indigo-400 text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">Oportunidad</span>
+                                    <span className="text-slate-400 text-xs">Tendencia Viral</span>
                                 </div>
-                                <h3 className="text-lg font-bold text-white mb-1">TikTok Trend Match: "Retro Wave"</h3>
-                                <p className="text-slate-400 text-sm">Your track "Neon Nights" fits the current trending template. Create a 15s clip now.</p>
+                                <h3 className="text-lg font-bold text-white mb-1">Match TikTok: "Retro Wave"</h3>
+                                <p className="text-slate-400 text-sm">Tu track "Neon Nights" encaja con esta tendencia. Crea un clip de 15s ahora.</p>
                             </div>
-                            <Button variant="outline">View Template</Button>
+                            <Button variant="outline">Ver Plantilla</Button>
                         </div>
                     </div>
                 </div>
@@ -175,24 +175,24 @@ export default function Dashboard() {
                             <div className="absolute left-0 top-1 w-5 h-5 rounded-full bg-emerald-500/20 border border-emerald-500/50 flex items-center justify-center">
                                 <DollarSign className="w-3 h-3 text-emerald-500" />
                             </div>
-                            <p className="text-sm text-white"><span className="font-bold text-emerald-400">+$124.50</span> Merch Sale (Hoodie)</p>
-                            <span className="text-xs text-slate-500">Just now • Mexico City</span>
+                            <p className="text-sm text-white"><span className="font-bold text-emerald-400">+$124.50</span> Venta Merch (Hoodie)</p>
+                            <span className="text-xs text-slate-500">Ahora mismo • Mexico City</span>
                         </div>
 
                         <div className="relative pl-8">
                             <div className="absolute left-0 top-1 w-5 h-5 rounded-full bg-indigo-500/20 border border-indigo-500/50 flex items-center justify-center">
                                 <Users className="w-3 h-3 text-indigo-500" />
                             </div>
-                            <p className="text-sm text-white"><span className="font-bold text-indigo-400">+5 New Superfans</span> identified</p>
-                            <span className="text-xs text-slate-500">2 min ago • Spotify Algorithm</span>
+                            <p className="text-sm text-white"><span className="font-bold text-indigo-400">+5 Nuevos Superfans</span> identificados</p>
+                            <span className="text-xs text-slate-500">Hace 2 min • Spotify Algorithm</span>
                         </div>
 
                         <div className="relative pl-8">
                             <div className="absolute left-0 top-1 w-5 h-5 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center">
                                 <CheckCircle className="w-3 h-3 text-slate-400" />
                             </div>
-                            <p className="text-sm text-slate-300">Campaign "Pre-save Blast" completed</p>
-                            <span className="text-xs text-slate-500">15 min ago • 45% Open Rate</span>
+                            <p className="text-sm text-slate-300">Campaña "Pre-save Blast" completada</p>
+                            <span className="text-xs text-slate-500">Hace 15 min • 45% Open Rate</span>
                         </div>
                     </div>
                 </div>
