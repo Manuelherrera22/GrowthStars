@@ -15,6 +15,7 @@ import AudiencePage from './pages/AudiencePage'
 import SmartLinksPage from './pages/SmartLinksPage'
 import PublicLinkPage from './pages/PublicLinkPage'
 import CampaignsPage from './pages/CampaignsPage'
+import ArtistDashboard from './pages/ArtistDashboard'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         {/* Admin Routes */}
         <Route path="/admin" element={<Layout />}>
           <Route index element={<Dashboard />} />
+          <Route path="artist-view" element={<ArtistDashboard />} /> {/* SIMULATOR */}
           <Route path="artists" element={<Dashboard />} /> {/* Reusing for demo */}
           <Route path="artists/:id" element={<ArtistDetail />} /> {/* NEW DETAIL ROUTE */}
           <Route path="campaigns" element={<CampaignsPage />} />

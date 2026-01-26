@@ -1,5 +1,5 @@
 import { Outlet, Link, useLocation } from 'react-router-dom'
-import { LayoutDashboard, Users, Target, Wallet, LogOut, Music4, Send, Menu, X } from 'lucide-react'
+import { LayoutDashboard, Users, Target, Wallet, LogOut, Music4, Send, Menu, X, Smartphone } from 'lucide-react'
 import { useAuthStore } from '../store/authStore'
 import { cn } from '../lib/utils'
 import NotificationBell from './NotificationBell'
@@ -19,6 +19,7 @@ export default function Layout() {
         { label: 'Smart Links', icon: Target, path: '/admin/smart-links' },
         { label: 'Misiones', icon: Target, path: '/admin/missions' },
         { label: 'Tesorería', icon: Wallet, path: '/admin/treasury' },
+        { label: 'Vista App Artista', icon: Smartphone, path: '/admin/artist-view' }, // Simulator
     ]
 
     return (
