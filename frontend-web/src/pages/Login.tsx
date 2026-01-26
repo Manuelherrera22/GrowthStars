@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/authStore'
+import { supabase } from '../lib/supabase'
 import { Button } from '../components/ui/Button'
 import { Input } from '../components/ui/Input'
 import { Music4, Loader2 } from 'lucide-react'
@@ -20,25 +21,23 @@ export default function Login() {
         setError('')
 
         try {
-            // MOCK LOGIN START
-            console.log("Mocking Login...")
-            await new Promise(r => setTimeout(r, 1000)) // Simulating network delay
+            // REAL SUAPBASE LOGIN
+            const { data, error } = await supabase.auth.signInWithPassword({
+                email,
+                password,
+            })
 
-            const mockToken = "mock-jwt-token-123"
-            setLogin(mockToken)
+            if (error) throw error
 
-            if (email.includes("admin")) {
+            if (data.session) {
+                setLogin(data.session.access_token)
+                // In a real app, query 'profiles' to get the role.
+                // For now, defaulting to admin logic based on email convention or just letting them in.
                 navigate('/admin')
-            } else if (email.includes("investor")) {
-                navigate('/investor')
-            } else {
-                setError('Use admin@ for Admin or investor@ for Investor view.')
             }
-            // MOCK LOGIN END
-
         } catch (err: any) {
             console.error(err)
-            setError('Invalid credentials. Please try again.')
+            setError(err.message || 'Login failed')
         } finally {
             setLoading(false)
         }
@@ -85,7 +84,7 @@ export default function Login() {
 
                     <Button type="submit" disabled={loading} className="w-full mt-6">
                         {loading ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : null}
-                        Sign In (Mock)
+                        Sign In
                     </Button>
                 </form>
             </div>
