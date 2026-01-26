@@ -1,0 +1,28 @@
+# General
+.DS_Store
+.vscode/
+.idea/
+
+# Python / Backend
+backend/__pycache__/
+backend/*.py[cod]
+backend/venv/
+backend/.env
+
+# Node / Frontend
+node_modules/
+dist/
+build/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Mobile
+.expo/
+*.jks
+*.p8
+*.p12
+*.key
+android/app/build/
+ios/Pods/
