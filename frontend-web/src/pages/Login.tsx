@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/authStore'
 import { supabase } from '../lib/supabase'
@@ -21,19 +21,33 @@ export default function Login() {
         setError('')
 
         try {
-            // REAL SUAPBASE LOGIN
+            // 1. Attempt Sign In
             const { data, error } = await supabase.auth.signInWithPassword({
                 email,
                 password,
             })
 
-            if (error) throw error
+            if (error) {
+                // AUTO-REPAIR: If invalid credentials, attempt to REGISTER the user on the fly. (Demo Hack)
+                if (error.message === 'Invalid login credentials' || error.status === 400) {
+                    console.log("User not found (or wrong password). Attempting auto-registration for demo...")
+                    const { data: signUpData, error: signUpError } = await supabase.auth.signUp({ email, password })
+
+                    if (signUpError) throw signUpError
+
+                    if (signUpData.session) {
+                        await finalizeLogin(signUpData.session.access_token, signUpData.user?.id)
+                        return
+                    } else if (signUpData.user && !signUpData.session) {
+                        setError('Cuenta creada. Si no entras directo, revisa tu email para confirmar.')
+                        return
+                    }
+                }
+                throw error
+            }
 
             if (data.session) {
-                setLogin(data.session.access_token)
-                // In a real app, query 'profiles' to get the role.
-                // For now, defaulting to admin logic based on email convention or just letting them in.
-                navigate('/admin')
+                await finalizeLogin(data.session.access_token, data.user?.id)
             }
         } catch (err: any) {
             console.error(err)
@@ -43,6 +57,52 @@ export default function Login() {
         }
     }
 
+    const finalizeLogin = async (token: string, userId?: string) => {
+        setLogin(token)
+
+        // 2. Fetch User Role for Redirection
+        if (userId) {
+            const { data: profile } = await supabase
+                .from('profiles')
+                .select('role')
+                .eq('id', userId)
+                .single()
+
+            if (profile) {
+                console.log("User Role:", profile.role)
+                if (profile.role === 'artist') {
+                    navigate('/admin/artist-view')
+                } else if (profile.role === 'investor') {
+                    navigate('/investor')
+                } else {
+                    navigate('/admin') // Admin or Manager
+                }
+                return
+            }
+        }
+
+        // Fallback if no profile found (Auth succeeded but no profile data)
+        // Default to admin for safety in demo mode, or artist if email implies it
+        if (email.includes('artist')) {
+            navigate('/admin/artist-view')
+        } else if (email.includes('investor')) {
+            navigate('/investor')
+        } else {
+            navigate('/admin')
+        }
+    }
+
+    // ADDED: Check session on mount to auto-redirect if already logged in
+    useEffect(() => {
+        const checkSession = async () => {
+            const { data: { session } } = await supabase.auth.getSession()
+            if (session) {
+                await finalizeLogin(session.access_token, session.user.id)
+            }
+        }
+        checkSession()
+    }, [])
+
     return (
         <div className="min-h-screen bg-slate-950 flex items-center justify-center p-4">
             <div className="w-full max-w-md bg-slate-900/50 border border-slate-800 rounded-2xl p-8 backdrop-blur-xl shadow-2xl">
@@ -51,7 +111,7 @@ export default function Login() {
                         <Music4 className="w-8 h-8 text-indigo-400" />
                     </div>
                     <h1 className="text-2xl font-bold text-white tracking-tight">Growth Stars</h1>
-                    <p className="text-slate-400 text-sm mt-1">Intelligence Platform (Mock Mode)</p>
+                    <p className="text-slate-400 text-sm mt-1">Intelligence Platform (Real Mode)</p>
                 </div>
 
                 <form onSubmit={handleLogin} className="space-y-4">
