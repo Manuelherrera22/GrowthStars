@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { TrendingUp, TrendingDown, Building2 } from 'lucide-react'
+import { TrendingUp, TrendingDown } from 'lucide-react'
 import TransactionTable from '../components/TransactionTable'
 import { supabase } from '../lib/supabase'
 
@@ -34,8 +34,8 @@ export default function TreasuryPage() {
                     <p className="text-slate-400">Gestiona liquidez, regalías y pagos a inversores (Datos Reales).</p>
                 </div>
                 <div className="flex items-center space-x-2 text-sm text-slate-500 bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg w-fit">
-                    <Building2 className="w-4 h-4" />
-                    <span>Growth Stars Inc. (US Delaware Corp)</span>
+                    <img src="/logo.png" alt="GS" className="h-5 w-auto object-contain mr-2" />
+                    <span>Inc. (US Delaware Corp)</span>
                 </div>
             </div>
 

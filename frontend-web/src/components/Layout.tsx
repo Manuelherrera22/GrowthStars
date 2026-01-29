@@ -1,5 +1,5 @@
 import { Outlet, Link, useLocation } from 'react-router-dom'
-import { LayoutDashboard, Users, Target, Wallet, LogOut, Music4, Send, Menu, X, Smartphone } from 'lucide-react'
+import { LayoutDashboard, Users, Target, Wallet, LogOut, Send, Menu, X, Smartphone } from 'lucide-react'
 import { useAuthStore } from '../store/authStore'
 import { cn } from '../lib/utils'
 import NotificationBell from './NotificationBell'
@@ -26,11 +26,8 @@ export default function Layout() {
         <div className="flex h-screen bg-slate-950 text-slate-100 font-sans overflow-hidden">
             {/* Mobile Header */}
             <header className="lg:hidden h-16 border-b border-slate-800 bg-slate-900/50 flex items-center justify-between px-4 fixed top-0 w-full z-50 backdrop-blur-md">
-                <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-indigo-500/10 rounded-full flex items-center justify-center">
-                        <Music4 className="w-5 h-5 text-indigo-400" />
-                    </div>
-                    <span className="font-bold text-lg tracking-tight">Growth Stars</span>
+                <div className="flex items-center space-x-3 px-2">
+                    <img src="/logo.png" alt="Growth Stars" className="h-10 w-auto object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
                 </div>
                 <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2">
                     {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -38,12 +35,15 @@ export default function Layout() {
             </header>
 
             {/* Desktop Sidebar */}
-            <aside className="hidden lg:flex w-64 border-r border-slate-800 bg-slate-900/50 backdrop-blur-xl flex-col">
-                <div className="p-6 flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-indigo-500/10 rounded-full flex items-center justify-center">
-                        <Music4 className="w-5 h-5 text-indigo-400" />
+            <aside className="hidden lg:flex w-64 border-r border-slate-800 bg-black/40 backdrop-blur-xl flex-col relative overflow-hidden">
+                {/* Subtle Sidebar Decoration */}
+                <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-indigo-900/10 to-transparent pointer-events-none" />
+
+                <div className="p-8 flex items-center justify-center relative z-10">
+                    <div className="relative">
+                        <div className="absolute inset-0 bg-indigo-500/20 blur-xl rounded-full"></div>
+                        <img src="/logo.png" alt="Growth Stars" className="relative h-16 w-auto object-contain drop-shadow-xl" />
                     </div>
-                    <span className="font-bold text-lg tracking-tight">Growth Stars</span>
                 </div>
 
                 <nav className="flex-1 px-4 space-y-2 mt-4 overflow-y-auto">

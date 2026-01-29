@@ -1,5 +1,5 @@
 import { Outlet, useLocation, Link } from 'react-router-dom'
-import { PieChart, TrendingUp, FileText, LogOut, Music4 } from 'lucide-react'
+import { PieChart, TrendingUp, FileText, LogOut } from 'lucide-react'
 import { useAuthStore } from '../store/authStore'
 import { cn } from '../lib/utils'
 
@@ -18,12 +18,9 @@ export default function InvestorLayout() {
             {/* Sidebar */}
             <aside className="w-64 border-r border-slate-800 bg-slate-900/50 backdrop-blur-xl flex flex-col">
                 <div className="p-6 flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-indigo-500/10 rounded-full flex items-center justify-center">
-                        <Music4 className="w-5 h-5 text-indigo-400" />
-                    </div>
-                    <div>
-                        <span className="font-bold text-lg tracking-tight block">Growth Stars</span>
-                        <span className="text-xs text-indigo-400 tracking-wider">INVESTOR PORTAL</span>
+                    <div className="flex flex-col items-start gap-4">
+                        <img src="/logo.png" alt="Growth Stars" className="h-14 w-auto object-contain drop-shadow-md" />
+                        <span className="text-[10px] text-indigo-400 tracking-widest font-semibold uppercase ml-1">Investor Portal</span>
                     </div>
                 </div>
 

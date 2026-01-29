@@ -4,7 +4,7 @@ import { useAuthStore } from '../store/authStore'
 import { supabase } from '../lib/supabase'
 import { Button } from '../components/ui/Button'
 import { Input } from '../components/ui/Input'
-import { Music4, Loader2 } from 'lucide-react'
+import { Loader2 } from 'lucide-react'
 
 export default function Login() {
     const navigate = useNavigate()
@@ -106,12 +106,13 @@ export default function Login() {
     return (
         <div className="min-h-screen bg-slate-950 flex items-center justify-center p-4">
             <div className="w-full max-w-md bg-slate-900/50 border border-slate-800 rounded-2xl p-8 backdrop-blur-xl shadow-2xl">
-                <div className="flex flex-col items-center mb-8">
-                    <div className="w-16 h-16 bg-indigo-500/10 rounded-full flex items-center justify-center mb-4">
-                        <Music4 className="w-8 h-8 text-indigo-400" />
-                    </div>
-                    <h1 className="text-2xl font-bold text-white tracking-tight">Growth Stars</h1>
-                    <p className="text-slate-400 text-sm mt-1">Intelligence Platform (Real Mode)</p>
+                <div className="flex flex-col items-center mb-10 space-y-4 relative">
+                    {/* Background Glow "Color Play" */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-indigo-500/20 rounded-full blur-[50px] animate-pulse"></div>
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-purple-500/20 rounded-full blur-[30px]"></div>
+
+                    <img src="/logo.png" alt="Logo" className="relative z-10 h-32 w-auto object-contain drop-shadow-[0_0_25px_rgba(99,102,241,0.8)]" />
+                    <p className="text-slate-400 text-sm mt-2 font-medium tracking-wide">Intelligence Platform (Real Mode)</p>
                 </div>
 
                 <form onSubmit={handleLogin} className="space-y-4">

@@ -1,6 +1,7 @@
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Zap, ArrowRight, Play, Sparkles, Heart, MessageCircle, Wallet, Crown, Star } from 'lucide-react'
+import { Zap, ArrowRight, Play, Sparkles, Heart, MessageCircle, Wallet, Crown } from 'lucide-react'
 import { Button } from '../components/ui/Button'
 
 export default function Landing() {
@@ -21,6 +22,16 @@ export default function Landing() {
         }
     }
 
+    const [scrolled, setScrolled] = useState(false)
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50)
+        }
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
+
     return (
         <div className="min-h-screen bg-[#030712] text-slate-100 font-sans selection:bg-rose-500/30 overflow-x-hidden">
 
@@ -30,14 +41,21 @@ export default function Landing() {
                 <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-amber-600/10 rounded-full blur-[120px] mix-blend-screen opacity-30" />
             </div>
 
-            {/* Header */}
-            <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-[#030712]/70 backdrop-blur-xl">
-                <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-rose-500/10 rounded-xl flex items-center justify-center border border-rose-500/20">
-                            <Star className="w-5 h-5 text-rose-400" />
-                        </div>
-                        <span className="font-bold text-xl tracking-tight text-white">Growth Stars</span>
+            {/* Header - Blended/Mimetized with Gradient & Scroll Effects */}
+            <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${scrolled ? 'bg-black/40 backdrop-blur-md h-20 pt-3' : 'bg-gradient-to-b from-black via-black/80 to-transparent h-32 pt-6'}`}>
+                <div className="max-w-7xl mx-auto px-6 w-full flex items-center justify-between">
+                    <div className="relative group">
+                        {/* "Color Play" / Glow Effect - Fades out on scroll to avoid distraction */}
+                        <div className={`absolute -inset-4 bg-gradient-to-r from-rose-600 via-purple-600 to-indigo-600 rounded-full blur-xl transition-all duration-500 ${scrolled ? 'opacity-0' : 'opacity-40 group-hover:opacity-60 animate-pulse'}`}></div>
+
+                        <img
+                            src="/logo.png"
+                            alt="Growth Stars"
+                            className={`relative object-contain transition-all duration-500 ease-in-out ${scrolled
+                                ? 'h-10 opacity-70 blur-[0.5px] hover:blur-0 hover:opacity-100'
+                                : 'h-20 drop-shadow-[0_0_15px_rgba(255,255,255,0.5)] transform group-hover:scale-105'
+                                }`}
+                        />
                     </div>
                     <div className="flex items-center space-x-6">
                         <Button
@@ -197,8 +215,8 @@ export default function Landing() {
             {/* Footer */}
             <footer className="py-12 border-t border-white/5 relative z-10 bg-[#02040a]">
                 <div className="max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-rose-500 to-amber-600 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-rose-500/20">
-                        <Star className="w-6 h-6 text-white" />
+                    <div className="mb-8 flex flex-col items-center gap-4">
+                        <img src="/logo.png" alt="Growth Stars" className="h-24 w-auto object-contain drop-shadow-md" />
                     </div>
 
                     <div className="text-sm text-slate-600 mb-8 max-w-md mx-auto">

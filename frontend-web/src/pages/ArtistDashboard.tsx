@@ -122,8 +122,8 @@ export default function ArtistDashboard() {
                                             </h1>
                                         </div>
                                         <div className="relative cursor-pointer" onClick={() => simulateAction("Perfil de Usuario")}>
-                                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/20">
-                                                <span className="text-white font-bold uppercase">{artistName.substring(0, 2)}</span>
+                                            <div className="flex items-center gap-2">
+                                                <img src="/logo.png" alt="Growth Stars" className="h-9 w-auto object-contain" />
                                             </div>
                                             <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 border-2 border-black rounded-full"></div>
                                         </div>
